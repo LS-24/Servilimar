@@ -1,0 +1,98 @@
+INSERT INTO tipo_usuario(nombre, descripcion) VALUES
+('Cliente','Usario que solicita turnos'),
+('Empleado', 'Persona que atiende los turnos'),
+('Administrador', 'Gestiona  sistema'),
+('Invitado', 'Acceso limitado'),
+('Proveedor', 'Proveedor externo'),
+('supervisor', 'Supervisa operacion'),
+('Consultor','Consulta datos'),
+('Gestor','Gestiona los turnos'),
+('Visitante','Usuario temporal'),
+('Mensajero','Servicio de mensajeria');
+
+INSERT INTO ciudad(nombre, codigo_postal) VALUES
+('Cali', 102030),
+('Bogota', 750600),
+('Barranquilla', 704060),
+('Medellin', 305001),
+('Cartagena', 652101),
+('Pasto', 648001),
+('Manizales', 756001),
+('Tunja', 206001),
+('Santa Marta', 456001),
+('Bucaramanga', 905001);
+
+INSERT INTO usuario(nombre, apellido, correo, telefono,
+condicion_especial, tipo_usuario_id, ciudad_id) VALUES
+('Juan', 'Perez', 'juan@gmail.com', '3001111111', 'Ninguna', 1, 1),
+('Maria', 'Lopez', 'maria@gmail.com', '3002222222', 'Embarazo', 2, 2),
+('Miguel', 'Diaz', 'miguel@gmail.com', '3007777777', 'Ninguna', 5, 7),
+('Sofia', 'Rojas', 'sofia@gmail.com', '3008888888', 'Auditiva', 1, 8),
+('Andres', 'Silva', 'andres@gmail.com', '3009999999', 'Ninguna', 3, 9),
+('Ana', 'Gómez', 'ana.gomez@email.com', '3102223333', 'Discapacidad visual', 2, 2),
+('Carlos', 'López', 'carlos.lopez@email.com', '3103334444', 'Ninguna', 3, 3),
+('Marta', 'Rodríguez', 'marta.rodriguez@email.com', '3104445555', 'Movilidad reducida', 1, 4),
+('Jorge', 'Martínez', 'jorge.martinez@email.com', '3105556666', 'Alergias', 1, 5),
+('Sofía', 'Díaz', 'sofia.diaz@email.com', '3108889999', 'Ninguna', 1, 8);
+
+INSERT INTO empleado(cargo, departamento, usuario_id) VALUES
+('Asesor', 'Atencion', 9),
+('Supervisor', 'Operaciones', 6),
+('Recepcionista', 'Recepcion', 1),
+('Auxiliar', 'Entrega', 4),
+('Administrador', 'Gerencia', 5),
+('Operador', 'Bodega', 8),
+('Asistente', 'Servicio Cliente', 10),
+('Técnico', 'Soporte', 7),
+('Asistente', 'RRHH', 3),
+('Digitador', 'Documentación', 2);
+
+INSERT INTO servicio(nombre, descripcion, estado) VALUES
+('Recepcion', 'Recepcion de productos', 'Activo'),
+('Atencion Cliente', 'Soporte al cliente', 'Activo'),
+('Facturacion', 'Generacion de facturas', 'Activo'),
+('Pagos', 'Recepcion de pagos', 'Activo'),
+('Inventario', 'Control de inventario', 'Activo'),
+('Soporte Tecnico', 'Ayuda tecnica', 'Activo'),
+('Mantenimiento', 'Revisión de equipos', 'activo'),
+('Logística', 'Coordinación de entregas', 'activo'),
+('Contabilidad', 'Gestión financiera', 'inactivo'),
+('RRHH', 'Procesos de personal', 'activo');
+
+INSERT INTO turno(fecha, hora_inicio, hora_fin, estado,usuario_id, 
+empleado_id, servicio_id) VALUES
+('2026-05-20', '08:00', '08:30', 'Finalizado', 1, 1, 1),
+('2026-05-20', '09:00', '09:30', 'Pendiente', 2, 2, 2),
+('2026-05-20', '10:00', '10:30', 'En proceso', 3, 3, 3),
+('2026-05-20', '13:00', '13:30', 'Pendiente', 6, 6, 6),
+('2026-05-20', '17:00', '17:30', 'Finalizado', 10, 10, 10),
+('2025-05-25', '11:00', '12:00', 'pendiente', 7, 7, 7),
+('2025-05-26', '14:00', '15:30', 'en curso', 4, 4, 4),
+('2025-05-27', '08:30', '09:30', 'completado', 5, 5, 5),
+('2025-05-28', '15:00', '16:30', 'en curso', 8, 8, 8),
+('2025-05-29', '09:00', '10:00', 'pendiente', 9, 9, 9);
+
+INSERT INTO medio(nombre_medio) VALUES
+('Correo'),
+('SMS'),
+('WhatsApp'),
+('Llamada'),
+('Telegram'),
+('Mensaje Interno'),
+('Push Mobile'),
+('Llamada telefónica'),
+('Correo físico'),
+('Aplicación móvil');
+
+INSERT INTO notificacion(mensaje, fecha_envio, estado,
+usuario_id, medio_id) VALUES
+('Su turno fue generado', '2026-05-20', 'Enviado', 1, 1),
+('Recordatorio de turno mañana', '2025-05-24', 'pendiente', 2, 2),
+('Cambio de horario', '2025-05-24', 'enviado', 3, 3),
+('Cancelación de servicio', '2025-05-24', 'leído', 4, 4),
+('Encuesta de satisfacción', '2025-05-24', 'enviado', 5, 5),
+('Nuevo mensaje del administrador', '2025-05-24', 'enviado', 6, 6),
+('Actualización de condiciones', '2025-05-24', 'leído', 7, 7),
+('Confirmación de pago', '2025-05-24', 'enviado', 8, 8),
+('Invitación a evento', '2025-05-24', 'pendiente', 9, 9),
+('Alerta de mantenimiento', '2025-05-24', 'enviado', 10, 10);
